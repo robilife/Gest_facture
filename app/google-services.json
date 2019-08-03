@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "463942397591",
+    "firebase_url": "https://gestion-facture.firebaseio.com",
+    "project_id": "gestion-facture",
+    "storage_bucket": "gestion-facture.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463942397591:android:10283697f25c18e7",
+        "android_client_info": {
+          "package_name": "com.example.gest_facture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463942397591-04q2gpht1ngj7feaa1f7qgikarsin6gt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gest_facture",
+            "certificate_hash": "5298a15735a3633a80632a5204db6de3aa8a338a"
+          }
+        },
+        {
+          "client_id": "463942397591-4p07stmd04qp598smp0e5oulcmellcvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtdC-m4-hBVwEyjq1hwntHizEXomn8b9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463942397591-4p07stmd04qp598smp0e5oulcmellcvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
