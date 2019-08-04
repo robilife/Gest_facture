@@ -28,4 +28,9 @@
     <string name="label_sonatel">Sonatel</string>
     <string name="label_sde">Sde</string>
     <string name="label_woyofal">Woyofaf</string>
+    <string name="title_hint">Facture Title</string>
+    <string name="price_hint">Price (Numbers Only)</string>
+    <string name="description_hint">Description</string>
+    <string name="save_menu">save</string>
+    <string name="delete_deal">delete facture</string>
 </resources>
