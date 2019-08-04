@@ -18,8 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ListeFactureActivity extends AppCompatActivity {
 
 
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference mDatabaseReference;
+    FirebaseDatabase mFirebaseDatabase;
+    DatabaseReference mDatabaseReference;
     EditText txtTitle;
     EditText txtPrice;
     EditText txtDescription;
@@ -29,9 +29,9 @@ public class ListeFactureActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_facture);
-        FirebaseUtil.openFbReference("factures");
-        mFirebaseDatabase = FirebaseUtil.mFirebaseDatabase;
-        mDatabaseReference =FirebaseUtil.mDatabaseReference;
+        // FirebaseUtil.openFbReference("factures");
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = mFirebaseDatabase.getReference("factures");
         txtTitle = (EditText) findViewById(R.id.txtTitle);
         txtPrice = (EditText) findViewById(R.id.txtPrice);
         txtDescription = (EditText) findViewById(R.id.txtDescription);
@@ -62,11 +62,10 @@ public class ListeFactureActivity extends AppCompatActivity {
         facture.setDescription(txtDescription.getText().toString());
         facture.setPrice(txtPrice.getText().toString());
 
-        if(facture.getId() == null){
-            mDatabaseReference.push().setValue(facture);
-        }else{
-            mDatabaseReference.child(facture.getId()).setValue(facture);
-        }
+        mDatabaseReference.child("2").setValue(facture);
+
+        //Artist artist = new Artist(id, name, genre);
+        //mDatabaseReference.child("1").setValue(facture);
 
     }
 
