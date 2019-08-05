@@ -55,34 +55,42 @@ public class PaymentActivity extends AppCompatActivity {
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent;
-                switch (facture) {
-                    case "Orange":
-                        intent = new Intent(PaymentActivity.this,
-                                ListeFactureActivity.class);
-                        intent.putExtra("facture_type", "Woyofal");
-                        startActivity(intent);
-                        break;
-                    case "Sde":
-                        intent = new Intent(PaymentActivity.this,
-                                ListeFactureActivity.class);
-                        intent.putExtra("facture_type", "Woyofal");
-                        startActivity(intent);
-                        break;
-                    case "Woyofal":
-                        intent = new Intent(PaymentActivity.this,
-                                ListeFactureActivity.class);
-                        intent.putExtra("facture_type", "Woyofal");
-                        startActivity(intent);
-                        break;
-                    case "Sonatel":
-                        intent = new Intent(PaymentActivity.this,
-                                ListeFactureActivity.class);
-                        intent.putExtra("facture_type", "Woyofal");
-                        startActivity(intent);
-                        break;
-                    default:
-                        break;
+
+                String rf = ref_facture.getText().toString();
+
+                if ((rf).isEmpty()){
+                    ref_facture.setError(getString(R.string.error_field_required));
+                }
+                else{
+                    Intent intent;
+                    switch (facture) {
+                        case "Orange":
+                            intent = new Intent(PaymentActivity.this,
+                                    ListeFactureActivity.class);
+                            intent.putExtra("facture_type", "Woyofal");
+                            startActivity(intent);
+                            break;
+                        case "Sde":
+                            intent = new Intent(PaymentActivity.this,
+                                    ListeFactureActivity.class);
+                            intent.putExtra("facture_type", "Woyofal");
+                            startActivity(intent);
+                            break;
+                        case "Woyofal":
+                            intent = new Intent(PaymentActivity.this,
+                                    ListeFactureActivity.class);
+                            intent.putExtra("facture_type", "Woyofal");
+                            startActivity(intent);
+                            break;
+                        case "Sonatel":
+                            intent = new Intent(PaymentActivity.this,
+                                    ListeFactureActivity.class);
+                            intent.putExtra("facture_type", "Woyofal");
+                            startActivity(intent);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         });
