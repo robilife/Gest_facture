@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gest_facture.Utilities.Facture;
@@ -20,21 +24,26 @@ public class ListeFactureActivity extends AppCompatActivity {
 
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mDatabaseReference;
-    EditText txtTitle;
-    EditText txtPrice;
-    EditText txtDescription;
+    //EditText txtTitle;
+    //EditText txtPrice;
+    //EditText txtDescription;
     Facture facture;
+    ImageView imgv;
+    TextView mntFacture;
+    TextView mntTotal;
+    TextView refFacture;
+    TextView dateFacture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_facture);
         // FirebaseUtil.openFbReference("factures");
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mFirebaseDatabase.getReference("factures");
-        txtTitle = (EditText) findViewById(R.id.txtTitle);
-        txtPrice = (EditText) findViewById(R.id.txtPrice);
-        txtDescription = (EditText) findViewById(R.id.txtDescription);
+        //mFirebaseDatabase = FirebaseDatabase.getInstance();
+        //mDatabaseReference = mFirebaseDatabase.getReference("factures");
+        //txtTitle = (EditText) findViewById(R.id.txtTitle);
+        //txtPrice = (EditText) findViewById(R.id.txtPrice);
+        //txtDescription = (EditText) findViewById(R.id.txtDescription);
 
         Intent intent = getIntent();
         Facture facture = (Facture) intent.getSerializableExtra("Deal");
@@ -42,10 +51,24 @@ public class ListeFactureActivity extends AppCompatActivity {
             facture = new Facture();
         }
 
+        imgv = findViewById(R.id.btn_close);
+        mntFacture = findViewById(R.id.mntFacture);
+        mntTotal = findViewById(R.id.mntTotal);
+        refFacture = findViewById(R.id.dateFacture);
+        dateFacture = findViewById(R.id.refValue);
+
         this.facture = facture;
-        txtTitle.setText(facture.getTitle());
-        txtDescription.setText(facture.getDescription());
-        txtPrice.setText(facture.getPrice());
+        //txtTitle.setText(facture.getTitle());
+        //txtDescription.setText(facture.getDescription());
+        mntFacture.setText(facture.getPrice());
+        mntTotal.setText(String.valueOf(Integer.valueOf(facture.getPrice()) + 200));
+
+        imgv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
@@ -57,7 +80,7 @@ public class ListeFactureActivity extends AppCompatActivity {
     }
 
 
-    private void saveDeal() {
+    /*private void saveDeal() {
         facture.setTitle(txtTitle.getText().toString());
         facture.setDescription(txtDescription.getText().toString());
         facture.setPrice(txtPrice.getText().toString());
@@ -67,15 +90,15 @@ public class ListeFactureActivity extends AppCompatActivity {
         //Artist artist = new Artist(id, name, genre);
         //mDatabaseReference.child("1").setValue(facture);
 
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.save_menu:
-                saveDeal();
+                //saveDeal();
                 Toast.makeText(this, "Deal Saved", Toast.LENGTH_LONG).show();
-                clean();
+                //clean();
                 //backToList();
                 return true;
             case R.id.delete_menu:
@@ -103,10 +126,10 @@ public class ListeFactureActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void clean() {
+    /*private void clean() {
         txtTitle.setText("");
         txtPrice.setText("");
         txtDescription.setText("");
         txtTitle.requestFocus();
-    }
+    }*/
 }

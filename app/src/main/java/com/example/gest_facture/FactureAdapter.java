@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -29,10 +30,12 @@ public class FactureAdapter extends  RecyclerView.Adapter<FactureAdapter.Facture
     private ChildEventListener mChildListener;
 
     public FactureAdapter(){
+
         FirebaseUtil.openFbReference("factures");
         mFirebaseDatabase = FirebaseUtil.mFirebaseDatabase;
         mDatabaseReference =FirebaseUtil.mDatabaseReference;
-        factures = FirebaseUtil.mFactures;
+
+        this.factures = FirebaseUtil.mFactures;
         mChildListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -40,8 +43,8 @@ public class FactureAdapter extends  RecyclerView.Adapter<FactureAdapter.Facture
                 Facture fact = dataSnapshot.getValue(Facture.class);
                 Log.d("Deal ", fact.getTitle());
                 fact.setId(dataSnapshot.getKey());
-                factures.add(fact);
-                notifyItemInserted(factures.size() - 1);
+                FactureAdapter.this.factures.add(fact);
+                notifyItemInserted(FactureAdapter.this.factures.size() - 1);
             }
 
             @Override
@@ -111,8 +114,8 @@ public class FactureAdapter extends  RecyclerView.Adapter<FactureAdapter.Facture
             tvTitle.setText(facture.getTitle());
             tvDescription.setText(facture.getDescription());
             tvPrice.setText(facture.getPrice());
-            tvEtat.setText(facture.getPrice());
-            tvDate.setText(facture.getPrice());
+            //tvEtat.setText(facture.getPrice());
+            //tvDate.setText(facture.getPrice());
         }
 
         @Override

@@ -66,25 +66,25 @@ public class PaymentActivity extends AppCompatActivity {
                     switch (facture) {
                         case "Orange":
                             intent = new Intent(PaymentActivity.this,
-                                    ListeFactureActivity.class);
+                                    ListeFacturesSenelecActivity.class);
                             intent.putExtra("facture_type", "Woyofal");
                             startActivity(intent);
                             break;
                         case "Sde":
                             intent = new Intent(PaymentActivity.this,
-                                    ListeFactureActivity.class);
+                                    ListeFacturesSenelecActivity.class);
                             intent.putExtra("facture_type", "Woyofal");
                             startActivity(intent);
                             break;
                         case "Woyofal":
                             intent = new Intent(PaymentActivity.this,
-                                    ListeFactureActivity.class);
+                                    ListeFacturesSenelecActivity.class);
                             intent.putExtra("facture_type", "Woyofal");
                             startActivity(intent);
                             break;
                         case "Sonatel":
                             intent = new Intent(PaymentActivity.this,
-                                    ListeFactureActivity.class);
+                                    ListeFacturesSenelecActivity.class);
                             intent.putExtra("facture_type", "Woyofal");
                             startActivity(intent);
                             break;

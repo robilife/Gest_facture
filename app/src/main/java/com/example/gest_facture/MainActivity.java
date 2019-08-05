@@ -15,7 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.gest_facture.Utilities.Utils;
 
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity
     ImageView imgWoyofal;
     ImageView imgSde;
     ImageView imgOrange;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
